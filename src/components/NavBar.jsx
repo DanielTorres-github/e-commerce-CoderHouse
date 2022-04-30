@@ -1,11 +1,12 @@
 import React from "react";
-import "./styles/Header.css";
-import "./img/logo.png";
+import "./styles/NavBar.css";
+// import "./img/logo.png";
 
-function Header() {
+function NavBar() {
+  const img = "./img/logo.png"
   return (
     <header>
-      <img src="./img/logo.png" alt="" className="logo"/>
+      <img src={img} alt="logo" className="logo"/>
       <nav className="nav">
         <ol className="links">
           <li>
@@ -30,4 +31,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default NavBar;
