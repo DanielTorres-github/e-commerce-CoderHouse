@@ -1,0 +1,31 @@
+header{
+    background-color: aqua;
+    display: flex;
+}
+.logo{
+    width: 75px;
+    height: 75px;
+}
+nav{
+    height: 75px;
+    /* width: 100%; */
+    display: flex;
+}
+.links{
+    display: flex;
+    list-style-type: none;
+    align-self: center;
+    margin: 15px;
+}
+
+.pageLink {
+    color: black;
+    margin: 25px;
+    text-decoration: none;
+}
+
+.buscador{
+    height: 25px;
+    align-self: center;
+    justify-content: left;
+}
