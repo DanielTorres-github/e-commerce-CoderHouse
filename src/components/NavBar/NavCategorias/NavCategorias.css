@@ -1,0 +1,28 @@
+.links {
+    display: flex;
+    list-style-type: none;
+    align-self: flex-end;
+    margin: 15px;
+    font-size: 14px;
+}
+
+.pageLink {
+    color: rgba(0, 0, 0, 0.4);
+    margin: 9px;
+    text-decoration: none;
+}
+.pageLink:hover{
+    color: black;
+}
+
+.direccion {
+    border: 1px solid transparent;
+    padding: 5px;
+}
+.userNameDir{
+    font-size: 12px;
+}
+
+.direccion:hover {
+    border: 1px solid #00000022;
+}
