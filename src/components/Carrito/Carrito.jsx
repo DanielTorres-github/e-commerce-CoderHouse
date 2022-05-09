@@ -1,9 +1,11 @@
 import React from 'react';
 import "./Carrito.css"
-import imgCart from "../img/carrito.png"
+import imgCart from "./carrito.png"
 
-function Carrito() {
-    const contador = ""
+
+
+function Carrito({contador = ""}) {
+    const carritoItems = []
     return (
         <>
             <a href="/">

@@ -1,9 +1,12 @@
-import imgPublicidad from "../../img/publicidad.webp"
+import imgPublicidad from "./publicidad.webp"
+import "./Publicidad.css"
 
 function Publicidad() {
     return (
         <>
-            <img src={imgPublicidad} alt="" className="publicidad" />
+            <a href="/">
+                <img src={imgPublicidad} alt="" className="publicidad" />
+            </a>
         </>
     );
 }
