@@ -1,0 +1,9 @@
+[
+    {"id":"1", "color":"azul","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"},
+    {"id":"2", "color":"rojo","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"},
+    {"id":"3", "color":"violeta","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"},
+    {"id":"4", "color":"naranja","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"},
+    {"id":"5", "color":"negro","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"},
+    {"id":"6", "color":"blanco","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"},
+    {"id":"7", "color":"verde","rubro":"ropa", "categoria":"indumentaria y accesorios","subCat":"gorras", "name":"gorra", "precio":"1222","descripcion":"sldkfjasldkfjñalkjg sadfsdgfg", "img":"https://picsum.photos/200"}
+]

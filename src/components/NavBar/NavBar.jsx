@@ -6,7 +6,7 @@ import Publicidad from "./Publicidad/Publicidad.jsx";
 import NavCategorias from "./NavCategorias/NavCategorias";
 import NavUser from "./NavUser/NavUser";
 
-function NavBar() {
+function NavBar({contador}) {
   return (
     <header className="flex flex-col justify-center pb-2">
       <div className="flex justify-center">
@@ -16,7 +16,7 @@ function NavBar() {
       </div>
       <div className="flex justify-center">
         <NavCategorias />
-        <NavUser></NavUser>
+        <NavUser contador={contador}></NavUser>
       </div>
     </header>
   );

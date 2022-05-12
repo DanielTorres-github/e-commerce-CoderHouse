@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 
-function ItemCount() {
-  let stock = 5
+function ItemCount({stock, agregarItem }) {
 
   const [cont, SetCont] = useState(0)
 
@@ -12,7 +11,7 @@ function ItemCount() {
     else { alert("No hay stock") }
   }
   function Restar() {
-    if (cont != 0)
+    if (cont !== 0)
       SetCont(cont - 1)
   }
 
@@ -27,7 +26,7 @@ function ItemCount() {
           +
         </button>
       </div>
-      <button onClick={() => alert("Agregados a Carrito")} className="bg-blue-500 rounded m-3 mb-4">Agregar Producto</button>
+      <button onClick={agregarItem} className="bg-blue-500 rounded m-3 mb-4">Agregar Producto</button>
     </>
   );
 }

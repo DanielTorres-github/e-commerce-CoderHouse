@@ -1,14 +1,18 @@
+import React, { useState } from 'react';
 import NavBar from "./components/NavBar/NavBar.jsx"
 import "./App.css";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx";
 
 function App() {
-
+  const [carrito, setCarrito] = useState([])
+  function agregarItem(){
+    setCarrito([...carrito,""])
+  }
   return (
     <>
-      <NavBar />
+      <NavBar contador={carrito.length}> </NavBar> 
       <div className="cuerpo">
-        <ItemListContainer titulo="Saludos. Este es el titulo de un ItemLIstContainer"></ItemListContainer>
+        <ItemListContainer titulo ="Productos nuevos" agregarItem={agregarItem}></ItemListContainer>
       </div>
       <footer></footer>
     </>
