@@ -1,17 +1,16 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 import "./Carrito.css"
-import imgCart from "./carrito.png"
 
 
 
-function Carrito({contador = ""}) {
+function Carrito() {
     const carritoItems = []
     return (
         <>
-            <a href="/">
-                <img src={imgCart} alt="" className="carrito" />
-                <span className='contador'>{contador}</span>
-            </a>
+            <div>
+                Este es el carrito
+            </div>
         </>
     );
 }

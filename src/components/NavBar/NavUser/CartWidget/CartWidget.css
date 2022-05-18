@@ -1,0 +1,14 @@
+.carrito{
+    width: 40px;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+}
+
+.contador {
+    position: relative;
+    z-index: 0;
+    left: 18px;
+    top: -11px;
+    font-size: 10px;
+}

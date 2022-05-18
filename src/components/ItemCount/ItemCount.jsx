@@ -20,7 +20,7 @@ function ItemCount({ stock, agregarItem }) {
           +
         </button>
       </div>
-      <button onClick={agregarItem} className="bg-blue-500 rounded m-3 mb-4">Agregar Producto</button>
+      <button onClick={agregarItem} className="bg-blue-500 rounded m-3 mb-4 pt-1 pb-1 pl-2 pr-2">Agregar Producto</button>
     </>
   );
 }

@@ -1,42 +1,47 @@
 import { useEffect, useState } from "react";
 import CardItemList from "./CardItemList/CardItemList";
 import "./ItemListContainer.css"
-
-const items = [
-    { id: "1", stock: "10", color: "azul", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" },
-    { id: "2", stock: "10", color: "rojo", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" },
-    { id: "3", stock: "10", color: "violeta", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" },
-    { id: "4", stock: "10", color: "naranja", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" },
-    { id: "5", stock: "10", color: "negro", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" },
-    { id: "6", stock: "10", color: "blanco", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" },
-    { id: "7", stock: "10", color: "verde", rubro: "ropa", categoria: "indumentaria y accesorios", subCat: "gorras", name: "gorra", precio: "1222", descripcion: "sldkfjasldkfjñalkjg sadfsdgfg", img: "https://picsum.photos/200" }
-]
+import items from "../../Json.json"
+import { useParams } from "react-router-dom";
 
 const getFetch = new Promise((resolve) => {
     setTimeout(() => {
         resolve(items)
-    }, 3000)
+    }, 2000)
 })
 
 function ItemListContainer({ titulo = "Titulo contenedor", agregarItem }) {
 
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
+    const { cat } = useParams()
 
     useEffect(() => {
-        getFetch
-            .then(resp => {
-                resp = setProductos(resp)
-            })
-            .catch((err) => {
-                console.log(err)
-                alert("No se puede Cargar productos")
-            })
-            .finally(() => setCargando(false))
-    }, [])
+        if (cat) {
+            getFetch
+                .then(resp => {
+                    resp = setProductos(resp.filter((prods) => prods.subCat === cat))
+                })
+                .catch((err) => {
+                    console.log(err)
+                    alert("No se puede Cargar productos")
+                })
+                .finally(() => setCargando(false))
+        } else {
+            getFetch
+                .then(resp => {
+                    resp = setProductos(resp)
+                })
+                .catch((err) => {
+                    console.log(err)
+                    alert("No se puede Cargar productos")
+                })
+                .finally(() => setCargando(false))
+        }
+    }, [cat])
 
     return (
-        <section className="bloque">
+        <section className="mt-5 item-container flex flex-col self-center justify-center">
             <h2 className="text-center">{titulo}</h2>
             {cargando ?
                 <h2>Cargando...</h2>

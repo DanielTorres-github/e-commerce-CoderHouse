@@ -1,5 +1,5 @@
 import "./NavUser.css"
-import Carrito from "../../Carrito/Carrito";
+import CartWidget from "./CartWidget/CartWidget";
 
 function NavUser({contador}) {
     let userName = "Creá tu cuenta"
@@ -17,7 +17,7 @@ function NavUser({contador}) {
                         <a href="/">Mis Compras</a>
                     </li>
                     <li className="pageLink">
-                        <Carrito contador={contador}></Carrito>
+                        <CartWidget contador={contador}></CartWidget>
                     </li>
                 </ol>
             </nav>

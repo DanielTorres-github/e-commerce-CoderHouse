@@ -1,6 +1,6 @@
-.bloque{
-    margin-top: 25px;
+.item-container{
+    max-width: 70%;
 }
-h2{
+h2 {
     font-size: x-large;
 }
