@@ -1,10 +1,7 @@
 import ItemCount from '../../ItemCount/ItemCount';
 import "./CardItem.css"
 
-function CardItem({ name, precio, desc, stock, img , agregarItem }) {
-    // const valor = 50000
-    // const descripcion = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-
+function CardItem({ name, precio, desc, stock, img, agregarItem }) {
 
     return (
         <div className='card flex flex-col border-2 rounded-b-lg hover:shadow-xl'>

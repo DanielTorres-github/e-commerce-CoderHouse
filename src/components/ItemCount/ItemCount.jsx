@@ -1,28 +1,22 @@
 import React, { useState } from 'react';
 
 
-function ItemCount({stock, agregarItem }) {
+function ItemCount({ stock, agregarItem }) {
 
-  const [cont, SetCont] = useState(0)
+  const [cont, SetCont] = useState(1)
 
-  function Sumar() {
-    if (cont < stock)
-      SetCont(cont + 1)
-    else { alert("No hay stock") }
-  }
-  function Restar() {
-    if (cont !== 0)
-      SetCont(cont - 1)
+  function sumarProducto(valor) {
+    SetCont(cont + valor)
   }
 
   return (
     <>
       <div className="flex justify-around m-3 border-2 border-blue-400">
-        <button onClick={Restar} className="text-blue-500">
+        <button onClick={() => sumarProducto(-1)} className="text-blue-500" disabled={cont < 2}>
           -
         </button>
         <p className="text-center">{cont}</p>
-        <button onClick={Sumar} className="text-blue-500">
+        <button onClick={() => sumarProducto(1)} className="text-blue-500" disabled={cont == stock}>
           +
         </button>
       </div>
