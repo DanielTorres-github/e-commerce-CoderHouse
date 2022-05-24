@@ -10,10 +10,12 @@ const getFetch = new Promise((resolve) => {
     }, 2000)
 })
 
-function ItemListContainer({ titulo = "Titulo contenedor", agregarItem }) {
+function ItemListContainer({ titulo = "Titulo contenedor" }) {
 
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
+    const [prodSimil, setprodSimil] = useState([])
+
     const { cat } = useParams()
 
     useEffect(() => {
@@ -21,6 +23,7 @@ function ItemListContainer({ titulo = "Titulo contenedor", agregarItem }) {
             getFetch
                 .then(resp => {
                     resp = setProductos(resp.filter((prods) => prods.subCat === cat))
+                    setprodSimil(productos)
                 })
                 .catch((err) => {
                     console.log(err)
@@ -46,7 +49,7 @@ function ItemListContainer({ titulo = "Titulo contenedor", agregarItem }) {
             {cargando ?
                 <h2>Cargando...</h2>
                 :
-                <CardItemList agregarItem={agregarItem} prod={productos} ></CardItemList>
+                <CardItemList prods={productos} simil={prodSimil} ></CardItemList>
             }
 
         </section>

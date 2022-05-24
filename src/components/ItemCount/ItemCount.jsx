@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { cartContext } from '../../context/cartContext';
 
 
-function ItemCount({ stock, agregarItem }) {
+function ItemCount({ stock, prod }) {
 
   const [cont, SetCont] = useState(1)
+
+  const { addToCart } = useContext(cartContext)
 
   function sumarProducto(valor) {
     SetCont(cont + valor)
@@ -11,16 +14,19 @@ function ItemCount({ stock, agregarItem }) {
 
   return (
     <>
-      <div className="flex justify-around m-3 border-2 border-blue-400">
-        <button onClick={() => sumarProducto(-1)} className="text-blue-500" disabled={cont < 2}>
-          -
-        </button>
-        <p className="text-center">{cont}</p>
-        <button onClick={() => sumarProducto(1)} className="text-blue-500" disabled={cont == stock}>
-          +
-        </button>
+      <div className='flex justify-center items-center'>
+        <div className="flex flex-auto justify-around m-3 border-2 border-blue-400">
+          <button onClick={() => sumarProducto(-1)} className="text-blue-500" disabled={cont < 2}>
+            -
+          </button>
+          <p className="text-center">{stock == 0 ? "No hay stock" : cont}</p>
+          <button onClick={() => sumarProducto(1)} className="text-blue-500" disabled={stock == 0 || cont==stock}>
+            +
+          </button>
+        </div>
+        <p className='text-amber-700 font-medium'>Stock: {stock}</p>
       </div>
-      <button onClick={agregarItem} className="bg-blue-500 rounded m-3 mb-4 pt-1 pb-1 pl-2 pr-2">Agregar Producto</button>
+      <button onClick={() => addToCart(prod)} className="bg-blue-500 rounded m-3 mb-4 pt-1 pb-1 pl-2 pr-2" disabled={stock==0}>Agregar Producto</button>
     </>
   );
 }

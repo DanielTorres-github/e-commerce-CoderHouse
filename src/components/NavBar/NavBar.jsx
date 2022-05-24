@@ -7,7 +7,7 @@ import NavCategorias from "./NavCategorias/NavCategorias";
 import NavUser from "./NavUser/NavUser";
 import { Link } from "react-router-dom";
 
-function NavBar({ contador }) {
+function NavBar() {
   return (
     <header className="flex flex-col justify-center pb-2">
       <div className="flex justify-center">
@@ -19,7 +19,7 @@ function NavBar({ contador }) {
       </div>
       <div className="flex justify-center">
         <NavCategorias />
-        <NavUser contador={contador}></NavUser>
+        <NavUser></NavUser>
       </div>
     </header>
   );

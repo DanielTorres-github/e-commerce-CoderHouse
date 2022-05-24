@@ -1,12 +1,12 @@
 import CardItem from "../CardItem/CardItem";
 
-function CardItemList({ agregarItem, prod }) {
+function CardItemList({ prods, prodSimil }) {
 
-
+    console.log(prods)
     return (
         <>
             <div className="flex flex-wrap gap-2 justify-center">
-                {prod.map((prod) =>
+                {prods.map((prod) =>
                     <div key={prod.id}>
                         <CardItem
                             id={prod.id}
@@ -15,7 +15,8 @@ function CardItemList({ agregarItem, prod }) {
                             desc={prod.descripcion}
                             stock={prod.stock}
                             img={prod.img}
-                            agregarItem={agregarItem}>
+                            productos={prods}
+                            simil={prodSimil}>
                         </CardItem>
                     </div>
                 )}

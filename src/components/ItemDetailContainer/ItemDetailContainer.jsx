@@ -17,17 +17,19 @@ function ItemDetailContainer() {
 
     const [producto, setProducto] = useState([])
     const [cargando, setCargando] = useState(true)
-
+    
     useEffect(() => {
-        getFetch
-            .then((resp) => {
-                resp = setProducto(resp[detalleId - 1])
-            })
-            .catch((err) => {
-                console.log(err)
-                alert("No se puede Cargar producto")
-            })
-            .finally(() => setCargando(false))
+        setTimeout(() => {
+            getFetch
+                .then((resp) => {
+                    resp = setProducto(resp[detalleId - 1])
+                })
+                .catch((err) => {
+                    console.log(err)
+                    alert("No se puede Cargar producto")
+                })
+                .finally(() => setCargando(false))
+        }, 1000);
     }, [])
 
     return (
@@ -41,6 +43,8 @@ function ItemDetailContainer() {
                     desc={producto.descripcion}
                     stock={producto.stock}
                     img={producto.img}
+                    prod={producto}
+                    color={producto.color}
                 ></ItemDetail>
             }
         </>
