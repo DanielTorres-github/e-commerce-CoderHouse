@@ -3,6 +3,7 @@ import CardItemList from "./CardItemList/CardItemList";
 import "./ItemListContainer.css"
 import items from "../../Json.json"
 import { useParams } from "react-router-dom";
+import { getFirestore, doc, getDoc, getDocs, collection, query, where } from "firebase/firestore"
 
 const getFetch = new Promise((resolve) => {
     setTimeout(() => {
@@ -17,6 +18,33 @@ function ItemListContainer({ titulo = "Titulo contenedor" }) {
     const [prodSimil, setprodSimil] = useState([])
 
     const { cat } = useParams()
+
+    //itemDetailContainer
+    // const [producto, setProducto] = useState({})
+    // useEffect(() => {
+    //     const db = getFirestore()
+    //     const dbQuery = doc(db, "items",
+    //         "hLLC7LikfAGTEFtTN08J"
+    //     )
+    //     getDoc(dbQuery)
+    //         .then(resp => setProducto({ id: resp.id, ...resp.data() }))
+    // },[])
+    // console.log(producto)
+
+
+    // useEffect(() => {
+    //     const db = getFirestore()
+    //     const querycollection = collection(db, "items")
+    //     const querycollectionFilter = query(querycollection, where("stock", "<=", 5))
+    //     getDocs(querycollectionFilter)
+    //         .then(resp => setProductos(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
+    //         .catch((err) => {
+    //             console.log(err)
+    //             alert("No se puede Cargar productos")
+    //         })
+    //         .finally(() => setCargando(false))
+    // }, [])
+    // console.log(productos)
 
     useEffect(() => {
         if (cat) {

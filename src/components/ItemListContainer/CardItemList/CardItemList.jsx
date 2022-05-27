@@ -2,7 +2,6 @@ import CardItem from "../CardItem/CardItem";
 
 function CardItemList({ prods, prodSimil }) {
 
-    console.log(prods)
     return (
         <>
             <div className="flex flex-wrap gap-2 justify-center">
