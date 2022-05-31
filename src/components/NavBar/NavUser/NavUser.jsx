@@ -1,5 +1,6 @@
 import "./NavUser.css"
 import CartWidget from "./CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 function NavUser() {
     let userName = "Creá tu cuenta"
@@ -8,10 +9,10 @@ function NavUser() {
             <nav className="flex justify-center items-center">
                 <ol className="flex">
                     <li className="pageLink">
-                        <a href="/">{userName}</a>
+                        <Link to="/crearuser"><span>{userName}</span></Link>
                     </li>
                     <li className="pageLink">
-                        <a href="/">Ingresá</a>
+                        <Link to="/login"><span>Ingresá</span></Link>
                     </li>
                     <li className="pageLink">
                         <a href="/">Mis Compras</a>

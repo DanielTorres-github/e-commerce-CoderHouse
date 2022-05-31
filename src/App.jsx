@@ -6,6 +6,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer.
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import Carrito from './components/Carrito/Carrito.jsx';
 import CartContextProvider from './context/cartContext.jsx';
+import Login from './components/NavBar/NavUser/Login/Login.jsx';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <NavBar > </NavBar>
         <div className="cuerpo">
           <Routes>
+            <Route path='/login' element={<Login></Login>}></Route>
             <Route path='/' element={<ItemListContainer titulo="Productos nuevos" />} />
             <Route path='/cat/:cat' element={<ItemListContainer />} />
             <Route path='/detalle/:detalleId' element={<ItemDetailContainer ></ItemDetailContainer>}></Route>

@@ -15,7 +15,6 @@ function ItemListContainer({ titulo = "Titulo contenedor" }) {
 
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
-    const [prodSimil, setprodSimil] = useState([])
 
     const { cat } = useParams()
 
@@ -51,7 +50,6 @@ function ItemListContainer({ titulo = "Titulo contenedor" }) {
             getFetch
                 .then(resp => {
                     resp = setProductos(resp.filter((prods) => prods.subCat === cat))
-                    setprodSimil(productos)
                 })
                 .catch((err) => {
                     console.log(err)
@@ -77,7 +75,7 @@ function ItemListContainer({ titulo = "Titulo contenedor" }) {
             {cargando ?
                 <h2>Cargando...</h2>
                 :
-                <CardItemList prods={productos} simil={prodSimil} ></CardItemList>
+                <CardItemList prods={productos} ></CardItemList>
             }
 
         </section>

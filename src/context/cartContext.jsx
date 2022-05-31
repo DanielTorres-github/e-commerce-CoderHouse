@@ -8,6 +8,8 @@ function CartContextProvider({ children }) {
     const [cartList, setCartList] = useState([])
     const [contador, setContador] = useState("")
 
+
+
     function chequearProducto(item) {
         if (cartList.some(e => e.id === item.id)) {
             const itemRepetido = cartList.find(e => e.id === item.id)
@@ -17,17 +19,22 @@ function CartContextProvider({ children }) {
         }
     }
 
+    function eliminarItem(item) {
+        setCartList(cartList.filter(e => e.id != item.id))
+        setContador(contador - item.cant)
+    }
+
+    function vaciarCarrito() {
+        setCartList([])
+    }
+
     function addToCart(item) {
         chequearProducto(item)
-        // setCartList([...cartList, item]);
-        setContador(cartList.length)
-
-        console.log(cartList)
-        // setContador(contador + 1)
+        setContador(contador + item.cant)
     }
 
     return (
-        <cartContext.Provider value={{ addToCart, contador, cartList }}>
+        <cartContext.Provider value={{ addToCart, contador, cartList, eliminarItem, vaciarCarrito }}>
             {children}
         </cartContext.Provider>
     );

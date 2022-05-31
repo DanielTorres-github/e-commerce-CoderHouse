@@ -12,3 +12,7 @@
     top: -11px;
     font-size: 10px;
 }
+.vh{
+    height: 75vh;
+    justify-content: center;
+}

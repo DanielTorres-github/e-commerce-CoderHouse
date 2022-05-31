@@ -23,6 +23,7 @@ function SelectColor({ options, onSelect, defaultOp = 1 }) {
 
 
 
+
 function ItemDetail({ name, precio, desc, stock, color, img, prod, prodSimil }) {
 
     const options = [
