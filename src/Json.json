@@ -19,7 +19,7 @@
     "categoria": "indumentaria y accesorios",
     "subCat": "gorras",
     "name": "gorra2",
-    "precio": "1222",
+    "precio": "1245",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -31,7 +31,7 @@
     "categoria": "indumentaria y accesorios",
     "subCat": "gorras",
     "name": "gorra3",
-    "precio": "1222",
+    "precio": "3575",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -43,7 +43,7 @@
     "categoria": "indumentaria y accesorios",
     "subCat": "gorras",
     "name": "gorra4",
-    "precio": "1222",
+    "precio": "7500",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -55,7 +55,7 @@
     "categoria": "indumentaria",
     "subCat": "remeras",
     "name": "remera1",
-    "precio": "1222",
+    "precio": "1500",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -67,7 +67,7 @@
     "categoria": "indumentaria",
     "subCat": "remeras",
     "name": "remera2",
-    "precio": "1222",
+    "precio": "1000",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -79,7 +79,7 @@
     "categoria": "indumentaria",
     "subCat": "remeras",
     "name": "remera3",
-    "precio": "1222",
+    "precio": "3250",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -91,7 +91,7 @@
     "categoria": "indumentaria",
     "subCat": "remeras",
     "name": "remera4",
-    "precio": "1222",
+    "precio": "2520",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -103,7 +103,7 @@
     "categoria": "indumentaria",
     "subCat": "remeras",
     "name": "remera5",
-    "precio": "1222",
+    "precio": "1662",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -115,7 +115,7 @@
     "categoria": "tecnologia",
     "subCat": "celulares",
     "name": "celular1",
-    "precio": "1222",
+    "precio": "1452",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -127,7 +127,7 @@
     "categoria": "tecnologia",
     "subCat": "celulares",
     "name": "celular2",
-    "precio": "1222",
+    "precio": "10040",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -139,7 +139,7 @@
     "categoria": "tecnologia",
     "subCat": "celulares",
     "name": "celular3",
-    "precio": "1222",
+    "precio": "50000",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -151,7 +151,7 @@
     "categoria": "tecnologia",
     "subCat": "celulares",
     "name": "celular4",
-    "precio": "1222",
+    "precio": "49050",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   },
@@ -163,7 +163,7 @@
     "categoria": "electrodomesticos",
     "subCat": "lavarropas",
     "name": "lavarropas1",
-    "precio": "1222",
+    "precio": "45575",
     "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     "img": "https://picsum.photos/200"
   }

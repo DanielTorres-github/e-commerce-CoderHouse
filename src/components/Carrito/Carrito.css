@@ -14,5 +14,12 @@
 }
 .vh{
     height: 75vh;
-    justify-content: center;
+    width: 75vw;
+}
+.prod-left{
+    width: 30%;
+}
+.prod-right{
+    width: 70%;
+    justify-content: space-around;
 }

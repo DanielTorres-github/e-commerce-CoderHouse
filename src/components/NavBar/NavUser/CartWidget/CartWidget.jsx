@@ -10,7 +10,7 @@ function CartWidget() {
         <>
             <Link to="/carrito">
                 <img src={imgCart} alt="" className="carrito" />
-                <span className='contador'>{contador}</span>
+                <span className='contador'>{contador === 0 ? "" : contador}</span>
             </Link>
         </>
     );
