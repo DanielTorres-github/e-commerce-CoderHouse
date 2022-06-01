@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import ItemDetail from "./ItemDetail/ItemDetail";
-import items from "../../Json.json"
 import { useParams } from "react-router-dom";
+import { collection, doc, Firestore, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
-
-const getFetch = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(items)
-    }, 1000)
-})
 
 function ItemDetailContainer() {
 
@@ -17,19 +11,19 @@ function ItemDetailContainer() {
 
     const [producto, setProducto] = useState([])
     const [cargando, setCargando] = useState(true)
-    
+
     useEffect(() => {
         setTimeout(() => {
-            getFetch
-                .then((resp) => {
-                    resp = setProducto(resp[detalleId - 1])
-                })
+            const db = getFirestore()
+            const dbquery = doc(db, "items", detalleId)
+            // const querycollectionFilter = query(querycollection, where("id", "==", detalleId))
+            getDoc(dbquery)
+                .then(resp => setProducto({ id: resp.id, ...resp.data() }))
                 .catch((err) => {
-                    console.log(err)
-                    alert("No se puede Cargar producto")
+                    alert("No se puede Cargar productos")
                 })
                 .finally(() => setCargando(false))
-        }, 1000);
+        }, 500);
     }, [])
 
     return (

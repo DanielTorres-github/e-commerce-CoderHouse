@@ -28,7 +28,7 @@ function Carrito() {
                                 </div>
                                 <div className='flex prod-right'>
                                     <p className='pl-4 self-center'> Cantidad: {prod.cant}</p>
-                                    <p className='pl-4 self-center'> Precio: {prod.cant * prod.precio}</p>
+                                    <p className='pl-4 self-center'> Precio: ${prod.cant * prod.precio}</p>
                                 </div>
                                 <button onClick={() => eliminarItem(prod)} className="bg-red-500 text-white self-center ml-12 p-1 rounded-md">Borrar</button>
                             </div>

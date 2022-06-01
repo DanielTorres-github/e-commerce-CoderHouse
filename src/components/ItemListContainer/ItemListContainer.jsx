@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import CardItemList from "./CardItemList/CardItemList";
 import "./ItemListContainer.css"
-import items from "../../Json.json"
 import { useParams } from "react-router-dom";
 import { getFirestore, doc, getDoc, getDocs, collection, query, where } from "firebase/firestore"
-
-const getFetch = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(items)
-    }, 2000)
-})
 
 function ItemListContainer({ titulo = "Titulo contenedor" }) {
 
@@ -18,49 +11,23 @@ function ItemListContainer({ titulo = "Titulo contenedor" }) {
 
     const { cat } = useParams()
 
-    //itemDetailContainer
-    // const [producto, setProducto] = useState({})
-    // useEffect(() => {
-    //     const db = getFirestore()
-    //     const dbQuery = doc(db, "items",
-    //         "hLLC7LikfAGTEFtTN08J"
-    //     )
-    //     getDoc(dbQuery)
-    //         .then(resp => setProducto({ id: resp.id, ...resp.data() }))
-    // },[])
-    // console.log(producto)
-
-
-    // useEffect(() => {
-    //     const db = getFirestore()
-    //     const querycollection = collection(db, "items")
-    //     const querycollectionFilter = query(querycollection, where("stock", "<=", 5))
-    //     getDocs(querycollectionFilter)
-    //         .then(resp => setProductos(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
-    //         .catch((err) => {
-    //             console.log(err)
-    //             alert("No se puede Cargar productos")
-    //         })
-    //         .finally(() => setCargando(false))
-    // }, [])
-    // console.log(productos)
 
     useEffect(() => {
+        const db = getFirestore()
         if (cat) {
-            getFetch
-                .then(resp => {
-                    resp = setProductos(resp.filter((prods) => prods.subCat === cat))
-                })
+            const querycollection = collection(db, "items")
+            const querycollectionFilter = query(querycollection, where("subCat", "==", cat))
+            getDocs(querycollectionFilter)
+                .then(resp => setProductos(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
                 .catch((err) => {
                     console.log(err)
                     alert("No se puede Cargar productos")
                 })
                 .finally(() => setCargando(false))
         } else {
-            getFetch
-                .then(resp => {
-                    resp = setProductos(resp)
-                })
+            const querycollection = collection(db, "items")
+            getDocs(querycollection)
+                .then(resp => setProductos(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
                 .catch((err) => {
                     console.log(err)
                     alert("No se puede Cargar productos")
