@@ -1,21 +1,22 @@
 import "./NavUser.css"
 import CartWidget from "./CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { cartContext } from "../../../context/cartContext";
 
 function NavUser() {
-    let userName = "Creá tu cuenta"
+    const { user } = useContext(cartContext)
     return (
         <>
-            <nav className="flex justify-center items-center">
+            <nav className="flex justify-center ml-20 items-center">
                 <ol className="flex">
                     <li className="pageLink">
-                        <Link to="/crearuser"><span>{userName}</span></Link>
+                        <Link to="/login"><span>{user.name === "" ? "Ingresar" : user.name}</span></Link>
                     </li>
                     <li className="pageLink">
-                        <Link to="/login"><span>Ingresá</span></Link>
-                    </li>
-                    <li className="pageLink">
-                        <a href="/">Mis Compras</a>
+                        <Link to="/miscompras">
+                            <span>Mis Compras</span>
+                        </Link>
                     </li>
                     <li className="pageLink">
                         <CartWidget></CartWidget>

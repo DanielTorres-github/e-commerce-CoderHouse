@@ -4,13 +4,18 @@ import "./ItemListContainer.css"
 import { useParams } from "react-router-dom";
 import { getFirestore, doc, getDoc, getDocs, collection, query, where } from "firebase/firestore"
 
-function ItemListContainer({ titulo = "Titulo contenedor" }) {
+function ItemListContainer({ titulo }) {
 
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
 
     const { cat } = useParams()
 
+    if (cat){
+        titulo=cat
+    } else {
+        titulo="productos nuevos"
+    }
 
     useEffect(() => {
         const db = getFirestore()

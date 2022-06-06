@@ -10,12 +10,12 @@ function NavCategorias({ user = "", dir = "Capital Federal" }) {
         <>
             <nav className="nav flex justify-center">
 
-                <div className="direccion rounded">
+                {/* <div className="direccion rounded">
                     <a href="/" className="flex flex-col">
                         <span className="userNameDir">Enviar a {user}</span>
                         <span>{dir}</span>
                     </a>
-                </div>
+                </div> */}
 
                 <ol className="links">
                     <li>

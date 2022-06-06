@@ -1,11 +1,66 @@
+import { addDoc, collection, documentId, Firestore, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { cartContext } from '../../context/cartContext';
 import "./Carrito.css"
 
 
 function Carrito() {
     const { cartList, eliminarItem, vaciarCarrito, precioTotal } = useContext(cartContext)
+
+    const user = {
+        name: "pepe",
+        email: "pepe@gmail.com",
+        tel: "111111111"
+    }
+
+    function finalizarCompra() {
+
+        let compra = {
+            comprador: user,
+            items: cartList.map(item => item = {
+                id: item.id,
+                name: item.name,
+                precio: item.precio
+            }),
+            total: precioTotal
+        }
+
+        const db = getFirestore()
+
+        const querycollection = collection(db, 'orders')
+        addDoc(querycollection, compra)
+            .then(resp => console.log(resp))
+            .catch(err => console.log(err))
+            .finally(() => {
+                console.log("fin")
+                actualizarStock()
+                vaciarCarrito()
+            })
+
+    }
+
+    async function actualizarStock() {
+
+        const db = getFirestore()
+        const querycollectionStock = collection(db, "items")
+        const queryActualizarStock = query(
+            querycollectionStock,
+            where(documentId(), 'in', cartList.map(it => it.id))
+        )
+
+        const batch = writeBatch(db)
+        await getDocs(queryActualizarStock)
+            .then(resp => resp.docs.forEach(res => {
+                return batch.update(res.ref, {
+                    stock: res.data().stock - cartList.find(item => item.id === res.id).cant
+                });
+            }))
+            .catch(err => console.log(err))
+            .finally(() => console.log("actualizado"))
+
+        batch.commit()
+    }
 
     return (
         <>
@@ -39,7 +94,7 @@ function Carrito() {
                     </div>
                     <div className='border-t-4 text-center flex justify-around '>
                         <button onClick={vaciarCarrito} className="bg-red-500 text-white p-2 rounded-md self-center">Vaciar Carrito</button>
-                        <button className='text-white bg-green-500 p-2 rounded-md'>Pagar</button>
+                        <button className='text-white bg-green-500 p-2 rounded-md' onClick={finalizarCompra}>Pagar</button>
                     </div>
                 </div>
             }

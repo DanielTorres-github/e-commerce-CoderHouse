@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Carrito from './components/Carrito/Carrito.jsx';
 import CartContextProvider from './context/cartContext.jsx';
 import Login from './components/NavBar/NavUser/Login/Login.jsx';
+import MisCompras from './components/NavBar/NavUser/MisCompras/MisCompras.jsx';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/detalle/:detalleId' element={<ItemDetailContainer ></ItemDetailContainer>}></Route>
             <Route path="/*" element={<Navigate to="/" replace></Navigate>}></Route>
             <Route path='/carrito' element={<Carrito></Carrito>}></Route>
+            <Route path='/miscompras' element={<MisCompras></MisCompras>}></Route>
           </Routes>
         </div>
         <footer></footer>
