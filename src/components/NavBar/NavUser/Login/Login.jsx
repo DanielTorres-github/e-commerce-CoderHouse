@@ -26,7 +26,6 @@ function Login({ userName }) {
             [e.target.name]: e.target.value
         })
     }
-    console.log(dataForm)
 
     return (
         <div className='flex flex-col h-full justify-center'>

@@ -8,7 +8,7 @@ function CartContextProvider({ children }) {
     const [cartList, setCartList] = useState([])
     const [contador, setContador] = useState(0)
     const [precioTotal, setPrecioTotal] = useState(0)
-    const [user, setUser] = useState({name:"", email:"", tel:""})
+    const [user, setUser] = useState({ name: "", email: "", tel: "" })
 
     function chequearProducto(item) {
         if (cartList.some(e => e.id === item.id)) {
@@ -25,8 +25,12 @@ function CartContextProvider({ children }) {
         setPrecioTotal(precioTotal - (item.precio * item.cant))
     }
 
-    function chequearUser(data){
-        if(user.email===data.email){
+    function chequearUser(data) {
+        console.log(data)
+        if (localStorage.getItem("User") !== null) {
+            localStorage.setItem("User", JSON.stringify(data))
+        }
+        if (user.email === data.email) {
             console.log("usuario existente")
         } else {
             console.log("usuario no existe")

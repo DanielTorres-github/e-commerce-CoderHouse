@@ -16,7 +16,6 @@ function ItemDetailContainer() {
         setTimeout(() => {
             const db = getFirestore()
             const dbquery = doc(db, "items", detalleId)
-            // const querycollectionFilter = query(querycollection, where("id", "==", detalleId))
             getDoc(dbquery)
                 .then(resp => setProducto({ id: resp.id, ...resp.data() }))
                 .catch((err) => {
