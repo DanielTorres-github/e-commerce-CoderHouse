@@ -1,21 +1,10 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./NavCategorias.css"
 
-function NavCategorias({ user = "", dir = "Capital Federal" }) {
-
-    // let dir = "Capital Federal"
-    // let user = ""
-
+function NavCategorias() {
     return (
         <>
             <nav className="nav flex justify-center">
-
-                {/* <div className="direccion rounded">
-                    <a href="/" className="flex flex-col">
-                        <span className="userNameDir">Enviar a {user}</span>
-                        <span>{dir}</span>
-                    </a>
-                </div> */}
 
                 <ol className="links">
                     <li>
@@ -28,7 +17,7 @@ function NavCategorias({ user = "", dir = "Capital Federal" }) {
                             <span href="/" className="pageLink">Gorras</span>
                         </Link>
                     </li>
-                    <li >
+                    <li>
                         <Link to="/cat/remeras">
                             <span href="/" className="pageLink">Remeras</span>
                         </Link>
