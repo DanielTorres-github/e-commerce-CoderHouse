@@ -25,26 +25,17 @@ function ItemListContainer({ titulo }) {
 
     useEffect(() => {
         const db = getFirestore()
-        if (cat) {
-            const querycollection = collection(db, "items")
-            const querycollectionFilter = query(querycollection, where("subCat", "==", cat))
-            getDocs(querycollectionFilter).then(resp => setProductos(resp.docs.map(item => ({
-                id: item.id,
-                ...item.data()
-            })))).catch((err) => {
-                console.log(err)
-                alert("No se puede Cargar productos")
-            }).finally(() => setCargando(false))
-        } else {
-            const querycollection = collection(db, "items")
-            getDocs(querycollection).then(resp => setProductos(resp.docs.map(item => ({
-                id: item.id,
-                ...item.data()
-            })))).catch((err) => {
-                console.log(err)
-                alert("No se puede Cargar productos")
-            }).finally(() => setCargando(false))
-        }
+        const querycollection = collection(db, "items")
+        const querycollectionFilter = cat ? query(querycollection, where("subCat", "==", cat)) : querycollection
+
+        getDocs(querycollectionFilter).then(resp => setProductos(resp.docs.map(item => ({
+            id: item.id,
+            ...item.data()
+        })))).catch((err) => {
+            console.log(err)
+            alert("No se puede Cargar productos")
+        }).finally(() => setCargando(false))
+
     }, [cat])
 
     return (
