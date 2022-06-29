@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .publicidad{
     max-width: 340px;
     max-height: 39px;
