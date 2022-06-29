@@ -1,22 +1,11 @@
-import {
-    addDoc,
-    collection,
-    documentId,
-    Firestore,
-    getDocs,
-    getFirestore,
-    query,
-    where,
-    writeBatch
-} from "firebase/firestore";
-import React, {useContext} from "react";
-import {Link} from "react-router-dom";
-import {cartContext} from "../../context/cartContext";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { cartContext } from "../../context/cartContext";
 import "./Carrito.css";
 import CartDetail from "./CartDetail/CartDetail";
 
 function Carrito() {
-    const {cartList} = useContext(cartContext);
+    const { cartList } = useContext(cartContext);
 
     return (
         <> {
@@ -28,7 +17,7 @@ function Carrito() {
                     </Link>
                 </div>
             ) : (
-                <CartDetail list={cartList}></CartDetail>
+                <CartDetail></CartDetail>
             )
         } </>
     );

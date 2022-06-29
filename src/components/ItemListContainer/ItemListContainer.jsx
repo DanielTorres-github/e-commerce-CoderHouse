@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import CardItemList from "./CardItemList/CardItemList";
 import "./ItemListContainer.css"
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
     getFirestore,
     getDocs,
@@ -10,12 +10,12 @@ import {
     where
 } from "firebase/firestore"
 
-function ItemListContainer({titulo}) {
+function ItemListContainer({ titulo }) {
 
     const [productos, setProductos] = useState([])
     const [cargando, setCargando] = useState(true)
 
-    const {cat} = useParams()
+    const { cat } = useParams()
 
     if (cat) {
         titulo = cat
@@ -34,7 +34,7 @@ function ItemListContainer({titulo}) {
             })))).catch((err) => {
                 console.log(err)
                 alert("No se puede Cargar productos")
-            }). finally(() => setCargando(false))
+            }).finally(() => setCargando(false))
         } else {
             const querycollection = collection(db, "items")
             getDocs(querycollection).then(resp => setProductos(resp.docs.map(item => ({
@@ -43,17 +43,17 @@ function ItemListContainer({titulo}) {
             })))).catch((err) => {
                 console.log(err)
                 alert("No se puede Cargar productos")
-            }). finally(() => setCargando(false))
+            }).finally(() => setCargando(false))
         }
     }, [cat])
 
     return (
         <section className="mt-5 item-container flex flex-col self-center justify-center">
             <h2 className="text-center">
-                {titulo}</h2>
-            {
-            cargando ? <h2>Cargando...</h2> : <CardItemList prods={productos}></CardItemList>
-        } </section>
+                {titulo}
+            </h2>
+            {cargando ? <h2>Cargando...</h2> : <CardItemList prods={productos}></CardItemList>}
+        </section>
     );
 }
 

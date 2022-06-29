@@ -1,13 +1,13 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import React from 'react';
 import ItemDetail from "./ItemDetail/ItemDetail";
-import {useParams} from "react-router-dom";
-import {doc, getDoc, getFirestore} from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 
 function ItemDetailContainer() {
 
-    const {detalleId} = useParams()
+    const { detalleId } = useParams()
 
     const [producto, setProducto] = useState([])
     const [cargando, setCargando] = useState(true)
@@ -21,31 +21,23 @@ function ItemDetailContainer() {
                 ...resp.data()
             })).catch((err) => {
                 alert("No se puede Cargar productos")
-            }). finally(() => setCargando(false))
+            }).finally(() => setCargando(false))
         }, 500);
     }, [])
 
     return (
-        <> {
-            cargando ? <h2 className="flex justify-center">Cargando...</h2> : <ItemDetail name={
-                    producto.name
-                }
-                precio={
-                    producto.precio
-                }
-                desc={
-                    producto.descripcion
-                }
-                stock={
-                    producto.stock
-                }
-                img={
-                    producto.img
-                }
+        <> {cargando ?
+            <h2 className="flex justify-center">Cargando...</h2>
+            :
+            <ItemDetail
+                name={producto.name}
+                precio={producto.precio}
+                desc={producto.descripcion}
+                stock={producto.stock}
+                img={producto.img}
                 prod={producto}
-                color={
-                    producto.color
-            }></ItemDetail>
+                color={producto.color}
+            ></ItemDetail>
         } </>
     );
 }

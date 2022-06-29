@@ -1,37 +1,26 @@
-import {
-  addDoc,
-  collection,
-  documentId,
-  getDocs,
-  getFirestore,
-  query,
-  where,
-  writeBatch,
-} from "firebase/firestore";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { cartContext } from "../../../context/cartContext";
+import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
+
 
 function CartDetail() {
-  const { cartList, eliminarItem, vaciarCarrito, precioTotal } =
-    useContext(cartContext);
 
-  const user = {
-    name: "pepe",
-    email: "pepe@gmail.com",
-    tel: "111111111",
-  };
+  const { cartList, eliminarItem, vaciarCarrito, precioTotal, user, setOrderId } = useContext(cartContext);
+
+
 
   function finalizarCompra() {
-
     let compra = {
       comprador: user,
       items: cartList.map(
         (item) =>
-          (item = {
-            id: item.id,
-            name: item.name,
-            precio: item.precio,
-          })
+        (item = {
+          id: item.id,
+          name: item.name,
+          precio: item.precio,
+          cantidad: item.cant
+        })
       ),
       total: precioTotal,
     };
@@ -40,14 +29,17 @@ function CartDetail() {
 
     const querycollection = collection(db, "orders");
     addDoc(querycollection, compra)
-      .then((resp) => console.log(resp))
-      .catch((err) => console.log(err))
-      .finally(() => {
+      .then((resp) => {
+        setOrderId(resp.id)
         actualizarStock();
         vaciarCarrito();
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+
       });
+
     async function actualizarStock() {
-      const db = getFirestore();
       const querycollectionStock = collection(db, "items");
       const queryActualizarStock = query(
         querycollectionStock,
@@ -77,28 +69,22 @@ function CartDetail() {
   }
 
   return (
-    
+
     <div className="flex flex-col">
       <div className="flex flex-col border-1 shadow-md rounded-md vh">
         {cartList.map((prod) => (
           <div className="flex border-t-2 m-2 p-4" key={prod.id}>
             <div className="flex prod-left">
-              <img src={prod.img} className="w-16 m-2 self-center" />
+              <img src={prod.img} alt="producto" className="w-16 m-2 self-center" />
             </div>
             <div className="flex-col prod-right">
-              <p className="pr-6 self-center">
-                {prod.name}
-              </p>
+              <p className="pr-6 self-center"> {prod.name} </p>
               <p className="pl-4 self-center">Cantidad: {prod.cant}</p>
             </div>
-              <p className="pl-4 self-center">
-                {" "}
-                Precio: ${prod.cant * prod.precio}{" "}
-              </p>
-            <button
-              onClick={() => eliminarItem(prod)}
-              className="bg-red-500 text-white self-center ml-12 p-1 rounded-md"
-            >
+            <p className="pl-4 self-center">
+              Precio: ${prod.cant * prod.precio}
+            </p>
+            <button onClick={() => eliminarItem(prod)} className="bg-red-500 text-white self-center ml-12 p-1 rounded-md" >
               Borrar
             </button>
           </div>
@@ -108,18 +94,17 @@ function CartDetail() {
         </div>
       </div>
       <div className="border-t-4 text-center flex justify-around ">
-        <button
-          onClick={vaciarCarrito}
-          className="bg-red-500 text-white p-2 rounded-md self-center"
-        >
+        <button onClick={vaciarCarrito} className="bg-red-500 text-white p-2 rounded-md self-center" >
           Vaciar Carrito
         </button>
-        <button
-          className="text-white bg-green-500 p-2 rounded-md"
-          onClick={finalizarCompra}
-        >
-          Pagar
-        </button>
+
+        <Link to={user.name === "" ? "/login" : "/CheckOut"}>
+          <button className="text-white bg-green-500 p-2 rounded-md" onClick={user.name === "" ? () => { } : finalizarCompra}>
+            Pagar
+          </button>
+        </Link>
+
+
       </div>
     </div>
   );

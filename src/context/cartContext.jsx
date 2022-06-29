@@ -6,7 +6,9 @@ function CartContextProvider({ children }) {
   const [cartList, setCartList] = useState([]);
   const [contador, setContador] = useState(0);
   const [precioTotal, setPrecioTotal] = useState(0);
-  const [user, setUser] = useState({ name: "", email: "", tel: "" });
+  const [user, setUser] = useState({ name: "", email: "", tel: "", status: false });
+  const [orderId, setOrderId] = useState("")
+
 
   function chequearProducto(item) {
     if (cartList.some((e) => e.id === item.id)) {
@@ -18,19 +20,16 @@ function CartContextProvider({ children }) {
   }
 
   function eliminarItem(item) {
-    setCartList(cartList.filter((e) => e.id != item.id));
+    setCartList(cartList.filter((e) => e.id !== item.id));
     setContador(contador - item.cant);
     setPrecioTotal(precioTotal - item.precio * item.cant);
   }
 
   function chequearUser(data) {
-    if (localStorage.getItem("User") !== null) {
-      localStorage.setItem("User", JSON.stringify(data));
-    }
-    if (user.email != data.email) {
-      alert(`Bienvenido ${data.name}`);
-      setUser(data);
-    }
+
+    alert(`Bienvenido ${data.name}`);
+    setUser(data);
+
   }
 
   function vaciarCarrito() {
@@ -50,6 +49,8 @@ function CartContextProvider({ children }) {
       value={{
         addToCart,
         contador,
+        orderId,
+        setOrderId,
         cartList,
         eliminarItem,
         vaciarCarrito,
