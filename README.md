@@ -1,6 +1,7 @@
 
 
-https://user-images.githubusercontent.com/85518794/176496408-41fd0d8d-9c2f-4c0f-b8b1-3031178b233e.mp4
+![Demo](https://user-images.githubusercontent.com/85518794/176497405-9f75effd-3ad6-416b-8b69-4dbd7bd16527.gif)
+
 
 # Getting Started with Create React App
 
