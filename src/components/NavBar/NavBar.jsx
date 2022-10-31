@@ -15,7 +15,7 @@ function NavBar() {
           <Logo />
         </Link>
         <Search />
-        <Publicidad />
+        {/* <Publicidad /> */}
       </div>
       <div className="flex justify-center">
         <NavCategorias />
